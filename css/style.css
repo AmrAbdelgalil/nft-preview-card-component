@@ -1,3 +1,12 @@
+:root {
+  --soft-blue: hsl(215, 51%, 70%);
+  --cyan: hsl(178, 100%, 50%);
+  --main-bg: hsl(217, 54%, 11%);
+  --card-bg: hsl(216, 50%, 16%);
+  --line: hsl(215, 32%, 27%);
+  --white: hsl(0, 0%, 100%);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,62 +15,179 @@
 
 body {
   font-family: "Outfit", sans-serif;
-  background: hsl(212, 45%, 89%);
+  background: var(--main-bg);
+  position: relative;
+  height: 100vh;
 }
 
 .container {
   width: 100%;
-  margin-top: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nft-card {
   position: relative;
-}
-
-.card {
+  margin-top: 100px;
+  padding: 5px;
   width: 300px;
-  height: 470px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%);
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: rgb(0, 0, 0, 0.05) 0 10px 10px 0;
+  height: 500px;
+  border-radius: 10px;
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
 }
 
-.container .image {
-  padding: 15px;
-}
-
-.container .image img {
+img {
   width: 270px;
   height: 50%;
-  border-radius: 20px;
+  border-radius: 10px;
+  margin: 10px auto;
+  padding: 5px;
 }
 
-header {
-  font-size: 21px;
-  text-align: center;
-  padding: 6px;
-  margin: 5px;
-  font-weight: 700;
+.background {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  height: 235px;
+  border-radius: 5px;
+  margin: 15px auto;
+  padding: 5px;
+  background: hsl(178, 100%, 50%, 0.5);
+  z-index: 12;
+  opacity: 0;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-p {
-  padding: 0 10px;
+.background img {
+  right: 50%;
+  top: 35%;
+  transform: translateX(50%);
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  z-index: 133;
+}
+
+.background:hover {
+  opacity: 1;
+}
+
+.header {
+  color: var(--white);
+  font-size: 20px;
+  margin: 10px;
+  padding: 5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.header:hover {
+  color: var(--cyan);
+}
+
+.eq-text {
+  color: var(--soft-blue);
+  font-weight: 300;
+  font-size: 18px;
   margin: 0 10px;
-  text-align: center;
-  font-weight: 400;
-  opacity: 0.5;
+  padding: 5px;
+}
+
+.icons-txt {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 10px;
+  padding: 5px;
+  height: 40px;
+}
+
+.icon-ethereum,
+.icon-clock {
+  margin-right: 5px;
+  transform: translateY(2px);
+}
+
+.eth span {
+  color: var(--cyan);
   font-size: 15px;
+  font-weight: 400;
+}
+
+.clock span {
+  color: var(--soft-blue);
+  font-size: 15px;
+  font-weight: 300;
+}
+
+hr {
+  outline: none;
+  border: 0.5px solid var(--line);
+  width: 90%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.creator {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px;
+  padding: 5px;
+}
+
+.image {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--white);
+  border-radius: 50%;
+}
+
+.image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.creator-name {
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 10px;
+  color: var(--soft-blue);
+}
+
+.creator-name span {
+  color: var(--white);
+  cursor: pointer;
+}
+
+.creator-name span:hover {
+  color: var(--cyan);
 }
 
 .attribution {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translate(-50%);
-  text-align: center;
+  transform: translateX(-50%);
+  color: var(--soft-blue);
 }
 
-@media max-width(375px) .attribution {
-  align-self: start;
+.attribution a {
+  color: var(--white);
+  cursor: pointer;
+}
+
+.attribution a:hover {
+  color: var(--cyan);
 }
